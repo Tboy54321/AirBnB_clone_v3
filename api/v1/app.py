@@ -1,10 +1,10 @@
 #!/usr/bin/pyhton3
-
+"""App"""
 from flask import Flask, jsonify
-'''from flask_restful import Resource, Api'''
 from models import storage
 from api.v1.views import app_views
 import os
+
 
 app = Flask(__name__)
 '''api = Api(app)'''
