@@ -88,5 +88,6 @@ class DBStorage:
 
     def count(self, cls=None):
         if not cls:
-            return sum(len(models.storage.all(c).values()) for c in classes.values())
+            return sum(len(models.storage.all(c).values())
+                       for c in classes.values())
         return len(models.storage.all(cls).values())
