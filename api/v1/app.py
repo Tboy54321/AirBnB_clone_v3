@@ -7,7 +7,6 @@ import os
 
 
 app = Flask(__name__)
-'''api = Api(app)'''
 app.register_blueprint(app_views)
 
 
