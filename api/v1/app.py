@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 """App"""
 from flask import Flask, jsonify
 from models import storage
