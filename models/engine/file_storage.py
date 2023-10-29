@@ -71,6 +71,7 @@ class FileStorage:
         self.reload()
 
     def get(self, cls, id):
+        """Get function"""
         if cls not in classes.values():
             return None
 
@@ -82,6 +83,7 @@ class FileStorage:
         return None
 
     def count(self, cls=None):
+        """Count function"""
         if not cls:
             return sum(len(models.storage.all(c).values())
                        for c in classes.values())

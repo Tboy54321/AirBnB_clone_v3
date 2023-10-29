@@ -76,6 +76,7 @@ class DBStorage:
         self.__session.remove()
 
     def get(self, cls, id):
+        """get function"""
         if cls not in classes.values():
             return None
 
@@ -87,6 +88,7 @@ class DBStorage:
         return None
 
     def count(self, cls=None):
+        """count function"""
         if not cls:
             return sum(len(models.storage.all(c).values())
                        for c in classes.values())
