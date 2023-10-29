@@ -12,6 +12,7 @@ app.register_blueprint(app_views)
 
 @app.errorhandler(404)
 def not_found(error):
+    """Error Handles"""
     response = jsonify({'error': 'Not found'})
     response.status_code = 404
     return response
@@ -19,6 +20,7 @@ def not_found(error):
 
 @app.teardown_appcontext
 def teardown(exception):
+    """Teardown Function"""
     storage.close()
 
 
