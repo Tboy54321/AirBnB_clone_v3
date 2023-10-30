@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
+
 """
-This module defines routes for managing amenities.
+This module defines routes for managing users.
 """
 
 
