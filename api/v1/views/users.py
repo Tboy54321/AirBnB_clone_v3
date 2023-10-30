@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+"""
+This module defines routes for managing amenities.
+"""
+
+
 from models import storage
 from flask import request, jsonify, abort
 from models.user import User
@@ -12,7 +17,8 @@ def get_users():
     return jsonify([user.to_dict() for user in users])
 
 
-@app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
+@app_views.route('/users/<user_id>',
+                 methods=['GET'], strict_slashes=False)
 def get_users_from_id(user_id):
     user = storage.get(User, user_id)
     if not user:
@@ -20,7 +26,8 @@ def get_users_from_id(user_id):
     return jsonify(user.to_dict())
 
 
-@app_views.route('/users/<user_id>', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/users/<user_id>',
+                 methods=['DELETE'], strict_slashes=False)
 def delete_users(user_id):
     user = storage.get(User, user_id)
     if not user:
@@ -45,7 +52,8 @@ def create_user():
     return jsonify(new_user.to_dict()), 201
 
 
-@app_views.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
+@app_views.route('/users/<user_id>',
+                 methods=['PUT'], strict_slashes=False)
 def update_user(user_id):
     user = storage.get(User, user_id)
     if not user:
