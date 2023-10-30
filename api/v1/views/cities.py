@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module defines routes for managing cities
+and their relationships with states.
+"""
 
 from flask import jsonify, request, abort
 from models import storage
@@ -7,7 +11,8 @@ from models.state import State
 from api.v1.views import app_views
 
 
-@app_views.route('/states/<state_id>/cities', methods=['GET'], strict_slashes=False)
+@app_views.route('/states/<state_id>/cities',
+                 methods=['GET'], strict_slashes=False)
 def get_cities_by_state(state_id):
     """Retrieves the list of all City objects of a State"""
     state = storage.get(State, state_id)
@@ -16,7 +21,9 @@ def get_cities_by_state(state_id):
     cities = [city.to_dict() for city in state.cities]
     return jsonify(cities)
 
-@app_views.route('/cities/<city_id>', methods=['GET'], strict_slashes=False)
+
+@app_views.route('/cities/<city_id>',
+                 methods=['GET'], strict_slashes=False)
 def get_city_by_city(city_id):
     city = storage.get(City, city_id)
     if city is None:
@@ -24,7 +31,8 @@ def get_city_by_city(city_id):
     return jsonify(city.to_dict())
 
 
-@app_views.route('/states/<state_id>/cities', methods=['POST'], strict_slashes=False)
+@app_views.route('/states/<state_id>/cities',
+                 methods=['POST'], strict_slashes=False)
 def add_city_by_state(state_id):
     state = storage.get(State, state_id)
     if state is None:

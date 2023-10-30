@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Blueprint for api"""
+"""
+Blueprint for api
+"""
 from flask import Flask, Blueprint
 
 app_views = Blueprint('app_views', __name__, url_prefix='/api/v1')
